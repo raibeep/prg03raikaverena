@@ -29,11 +29,15 @@ public class Calculadora extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel2 = new javax.swing.JLabel();
         txtNascimento = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         lblData = new javax.swing.JLabel();
         bntCalcula = new javax.swing.JButton();
         lblResultado = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+
+        jLabel2.setText("jLabel2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -43,16 +47,20 @@ public class Calculadora extends javax.swing.JFrame {
         lblData.setText("Ano de Nascimento");
         getContentPane().add(lblData, new org.netbeans.lib.awtextra.AbsoluteConstraints(67, 66, -1, -1));
 
+        bntCalcula.setIcon(new javax.swing.ImageIcon("C:\\Users\\Raika\\Downloads\\calculator (1).png")); // NOI18N
         bntCalcula.setText("Calcular");
         bntCalcula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bntCalculaActionPerformed(evt);
             }
         });
-        getContentPane().add(bntCalcula, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, -1, -1));
+        getContentPane().add(bntCalcula, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, -1, -1));
 
         lblResultado.setText("0 anos");
-        getContentPane().add(lblResultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 190, -1, -1));
+        getContentPane().add(lblResultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, -1, -1));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Raika\\Downloads\\age-group (1).png")); // NOI18N
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 80, 70, 80));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -97,6 +105,8 @@ public class Calculadora extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bntCalcula;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel lblData;
     private javax.swing.JLabel lblResultado;
     private javax.swing.JTextField txtNascimento;
