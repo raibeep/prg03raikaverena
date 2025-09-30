@@ -18,6 +18,8 @@ public class Gênio extends javax.swing.JFrame {
     public Gênio() {
         initComponents();
         configurarSpinner();
+        
+        lblTexto.setText("<html>Bem-Vindo ao Jogo da Advinhação!<br>Escolha um número de 1 a 5.<html>");
     }
     
     //função para configurar o spinner
@@ -42,7 +44,6 @@ public class Gênio extends javax.swing.JFrame {
         btnPalpite = new javax.swing.JButton();
         lblTexto = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        lblResultado = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -59,12 +60,10 @@ public class Gênio extends javax.swing.JFrame {
         });
         getContentPane().add(btnPalpite, new org.netbeans.lib.awtextra.AbsoluteConstraints(139, 167, -1, -1));
 
-        lblTexto.setText("Vou pensar em um valor entre 1 e 5. Tente advinhar!");
-        getContentPane().add(lblTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, 280, 50));
+        lblTexto.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
+        lblTexto.setText("..");
+        getContentPane().add(lblTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, 250, 50));
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 200, -1, -1));
-
-        lblResultado.setText(".");
-        getContentPane().add(lblResultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 200, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -74,13 +73,11 @@ public class Gênio extends javax.swing.JFrame {
         int palpite = (Integer) spnNumero.getValue();
         int numero = (int) (Math.random() * 5) + 1; //define os valores aleatórios
         
-        if(palpite == numero){
-            lblTexto.setText("Você acertou!!");
-            lblResultado.setText("O valor é: " +numero);
-        }else{
-            lblTexto.setText("Você errou :(");
-            lblResultado.setText("O valor é: " +numero);
-        }
+        //condição para saber se acertou o número ou não
+        if (palpite == numero)
+            lblTexto.setText("ACERTOU!!");
+        else 
+            lblTexto.setText("ERROU!! Eu pensei no valor " +numero);
     }//GEN-LAST:event_btnPalpiteActionPerformed
 
     /**
@@ -112,7 +109,6 @@ public class Gênio extends javax.swing.JFrame {
     private javax.swing.JButton btnPalpite;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel lblResultado;
     private javax.swing.JLabel lblTexto;
     private javax.swing.JSpinner spnNumero;
     // End of variables declaration//GEN-END:variables
