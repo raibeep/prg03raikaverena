@@ -19,6 +19,7 @@ public class Gênio extends javax.swing.JFrame {
         initComponents();
         configurarSpinner();
         
+        //mostra o texto inicial com quebra de linha
         lblTexto.setText("<html>Bem-Vindo ao Jogo da Advinhação!<br>Escolha um número de 1 a 5.<html>");
     }
     
@@ -44,13 +45,15 @@ public class Gênio extends javax.swing.JFrame {
         btnPalpite = new javax.swing.JButton();
         lblTexto = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Escolha um valor: ");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 130, -1, -1));
-        getContentPane().add(spnNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(139, 127, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, -1));
+        getContentPane().add(spnNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 160, -1, -1));
 
         btnPalpite.setText("Palpite");
         btnPalpite.addActionListener(new java.awt.event.ActionListener() {
@@ -58,12 +61,18 @@ public class Gênio extends javax.swing.JFrame {
                 btnPalpiteActionPerformed(evt);
             }
         });
-        getContentPane().add(btnPalpite, new org.netbeans.lib.awtextra.AbsoluteConstraints(139, 167, -1, -1));
+        getContentPane().add(btnPalpite, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 193, 80, 30));
 
         lblTexto.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
-        lblTexto.setText("..");
-        getContentPane().add(lblTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, 250, 50));
+        lblTexto.setText("As instruções aparecerão aqui!!");
+        getContentPane().add(lblTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 250, 50));
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 200, -1, -1));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Raika\\Downloads\\akinator__1_-removebg-preview.png")); // NOI18N
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 140, 140, 120));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\Raika\\Downloads\\fala__1___1_-removebg-preview.png")); // NOI18N
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -109,6 +118,8 @@ public class Gênio extends javax.swing.JFrame {
     private javax.swing.JButton btnPalpite;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel lblTexto;
     private javax.swing.JSpinner spnNumero;
     // End of variables declaration//GEN-END:variables
