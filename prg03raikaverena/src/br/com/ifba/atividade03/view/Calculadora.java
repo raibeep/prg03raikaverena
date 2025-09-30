@@ -35,7 +35,7 @@ public class Calculadora extends javax.swing.JFrame {
         lblData = new javax.swing.JLabel();
         bntCalcula = new javax.swing.JButton();
         lblResultado = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        lblImagem = new javax.swing.JLabel();
 
         jLabel2.setText("jLabel2");
 
@@ -57,10 +57,10 @@ public class Calculadora extends javax.swing.JFrame {
         getContentPane().add(bntCalcula, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, -1, -1));
 
         lblResultado.setText("0 anos");
-        getContentPane().add(lblResultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, -1, -1));
+        getContentPane().add(lblResultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, -1, -1));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Raika\\Downloads\\age-group (1).png")); // NOI18N
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 80, 70, 80));
+        lblImagem.setIcon(new javax.swing.ImageIcon("C:\\Users\\Raika\\Downloads\\age-group (1).png")); // NOI18N
+        getContentPane().add(lblImagem, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 80, 70, 80));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -106,8 +106,8 @@ public class Calculadora extends javax.swing.JFrame {
     private javax.swing.JButton bntCalcula;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel lblData;
+    private javax.swing.JLabel lblImagem;
     private javax.swing.JLabel lblResultado;
     private javax.swing.JTextField txtNascimento;
     // End of variables declaration//GEN-END:variables
