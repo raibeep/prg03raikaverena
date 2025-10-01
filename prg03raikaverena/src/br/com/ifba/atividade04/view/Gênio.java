@@ -65,7 +65,7 @@ public class Gênio extends javax.swing.JFrame {
 
         lblTexto.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
         lblTexto.setText("As instruções aparecerão aqui!!");
-        getContentPane().add(lblTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 250, 50));
+        getContentPane().add(lblTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 260, 40));
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 200, -1, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Raika\\Downloads\\akinator__1_-removebg-preview.png")); // NOI18N
