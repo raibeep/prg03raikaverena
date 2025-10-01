@@ -37,6 +37,9 @@ public class Repetição extends javax.swing.JFrame {
         lblNum1 = new javax.swing.JLabel();
         lblNum2 = new javax.swing.JLabel();
         lblNum3 = new javax.swing.JLabel();
+        btnContar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtAreaResultado = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -59,7 +62,6 @@ public class Repetição extends javax.swing.JFrame {
         });
         getContentPane().add(sldInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, -1, -1));
 
-        sldFim.setMaximum(30);
         sldFim.setValue(0);
         sldFim.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -78,13 +80,27 @@ public class Repetição extends javax.swing.JFrame {
         getContentPane().add(sldPasso, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, -1, -1));
 
         lblNum1.setText("0");
-        getContentPane().add(lblNum1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, -1, -1));
+        getContentPane().add(lblNum1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, 10, -1));
 
         lblNum2.setText("0");
-        getContentPane().add(lblNum2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 90, -1, -1));
+        getContentPane().add(lblNum2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 90, -1, -1));
 
         lblNum3.setText("0");
-        getContentPane().add(lblNum3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 130, -1, -1));
+        getContentPane().add(lblNum3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 130, -1, -1));
+
+        btnContar.setText("Contar");
+        btnContar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnContarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnContar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, -1, -1));
+
+        txtAreaResultado.setColumns(20);
+        txtAreaResultado.setRows(5);
+        jScrollPane1.setViewportView(txtAreaResultado);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 50, 150, 230));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -110,6 +126,22 @@ public class Repetição extends javax.swing.JFrame {
         //atualiza a label
         lblNum3.setText(String.valueOf(valorAtual));
     }//GEN-LAST:event_sldPassoStateChanged
+
+    private void btnContarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContarActionPerformed
+        int inicio = sldInicio.getValue();
+        int fim = sldFim.getValue();
+        int passo = sldPasso.getValue();
+        
+        //StringBuilder constrói a string de resultado
+        StringBuilder resultado = new StringBuilder();
+        
+        for (int i = inicio; i <= fim; i += passo){
+            //adiciona cada número da sequência seguido de quebra de texto 
+            resultado.append(i).append("\n");
+        }
+        //mostra a sequencia na área de texto
+        txtAreaResultado.setText(resultado.toString());
+    }//GEN-LAST:event_btnContarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -137,6 +169,8 @@ public class Repetição extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnContar;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblFim;
     private javax.swing.JLabel lblInicio;
     private javax.swing.JLabel lblNum1;
@@ -146,5 +180,6 @@ public class Repetição extends javax.swing.JFrame {
     private javax.swing.JSlider sldFim;
     private javax.swing.JSlider sldInicio;
     private javax.swing.JSlider sldPasso;
+    private javax.swing.JTextArea txtAreaResultado;
     // End of variables declaration//GEN-END:variables
 }
