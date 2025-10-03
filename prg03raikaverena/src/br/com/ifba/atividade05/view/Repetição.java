@@ -4,6 +4,8 @@
  */
 package br.com.ifba.atividade05.view;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Raika
@@ -17,6 +19,8 @@ public class Repetição extends javax.swing.JFrame {
      */
     public Repetição() {
         initComponents();
+        //Configura para começar no valor 1
+        sldPasso.setValue(1);
     }
 
     /**
@@ -44,16 +48,18 @@ public class Repetição extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        lblInicio.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         lblInicio.setText("Início");
         getContentPane().add(lblInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 51, -1, -1));
 
+        lblFim.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         lblFim.setText("Fim");
         getContentPane().add(lblFim, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
 
+        lblPasso.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         lblPasso.setText("Passo");
         getContentPane().add(lblPasso, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
 
-        sldInicio.setMaximum(10);
         sldInicio.setValue(0);
         sldInicio.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -71,7 +77,7 @@ public class Repetição extends javax.swing.JFrame {
         getContentPane().add(sldFim, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, -1, -1));
 
         sldPasso.setMaximum(10);
-        sldPasso.setValue(0);
+        sldPasso.setMinimum(1);
         sldPasso.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 sldPassoStateChanged(evt);
@@ -80,13 +86,13 @@ public class Repetição extends javax.swing.JFrame {
         getContentPane().add(sldPasso, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, -1, -1));
 
         lblNum1.setText("0");
-        getContentPane().add(lblNum1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, 10, -1));
+        getContentPane().add(lblNum1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, 30, -1));
 
         lblNum2.setText("0");
-        getContentPane().add(lblNum2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 90, -1, -1));
+        getContentPane().add(lblNum2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 90, 30, -1));
 
-        lblNum3.setText("0");
-        getContentPane().add(lblNum3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 130, -1, -1));
+        lblNum3.setText("1");
+        getContentPane().add(lblNum3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 130, 20, -1));
 
         btnContar.setText("Contar");
         btnContar.addActionListener(new java.awt.event.ActionListener() {
@@ -128,19 +134,35 @@ public class Repetição extends javax.swing.JFrame {
     }//GEN-LAST:event_sldPassoStateChanged
 
     private void btnContarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContarActionPerformed
-        int inicio = sldInicio.getValue();
-        int fim = sldFim.getValue();
-        int passo = sldPasso.getValue();
+        //utilizei o try/catch para identificar exceções 
+        try {
+            int inicio = sldInicio.getValue();
+            int fim = sldFim.getValue();
+            int passo = sldPasso.getValue();
+            //caso o fim seja menor que o inicio
+            if (fim < inicio){
+                //exibe uma mensagem de erro ao usuário
+                JOptionPane.showMessageDialog (this, 
+                "Erro: O valor final NÃO pode ser maior que o inicial!", "Erro de validação", 
+                JOptionPane.ERROR_MESSAGE);
+                return;
+            }
         
-        //StringBuilder constrói a string de resultado
-        StringBuilder resultado = new StringBuilder();
+            //StringBuilder constrói a string de resultado
+            StringBuilder resultado = new StringBuilder();
         
-        for (int i = inicio; i <= fim; i += passo){
-            //adiciona cada número da sequência seguido de quebra de texto 
-            resultado.append(i).append("\n");
+            for (int i = inicio; i <= fim; i += passo){
+                //adiciona cada número da sequência seguido de quebra de texto 
+                resultado.append(i).append("\n");
+            }
+            //mostra a sequencia na área de texto
+            txtAreaResultado.setText(resultado.toString());
+        } catch (Exception e) {
+            // o catch captura as exceções não previstas anteriormente
+            //exibe a mensagem de erro ao usuário
+            JOptionPane.showMessageDialog (this, "Erro inesperado: " + e.getMessage(), "Erro", 
+            JOptionPane.ERROR_MESSAGE);
         }
-        //mostra a sequencia na área de texto
-        txtAreaResultado.setText(resultado.toString());
     }//GEN-LAST:event_btnContarActionPerformed
 
     /**
