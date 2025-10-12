@@ -86,4 +86,35 @@ public class Banco {
             System.out.println("Você recebeu um presente de R$ 150,00");
         }
     }
+    
+    public void fecharConta(){
+        if (!status){
+            System.out.println("A conta já está fechada!");
+        }else if (this.saldo > 0){
+            System.out.println("Ainda há dinheiro na conta! Retire o saldo antes de fechar.");
+        }else if (this.saldo < 0){
+            System.out.println("Conta em débito!! Quite suas dividas antes de fechar.");
+        }else {
+            this.status = false;
+            System.out.println("Conta encerrada com sucesso");
+        }
+    }
+    
+    public void depositar(double valor){
+        if (!this.status){
+            System.out.println("Conta fechada! Indisponível para transações.");
+            return;
+        }
+        
+        this.saldo += valor;
+        System.out.println("Déposito de " + valor + "feito com sucesso!");
+    }
+    
+    public void sacar(double valor){
+        if (!this.status){
+            System.out.println("Conta fechada! Indisponível para transações.");
+        }
+        this.saldo -= valor;
+        System.out.println("Saque de " + valor + "feito com sucesso");
+    }
 }
