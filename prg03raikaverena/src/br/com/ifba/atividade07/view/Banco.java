@@ -8,15 +8,15 @@ package br.com.ifba.atividade07.view;
  *
  * @author Raika
  */
-public class Banco {
+public class Banco { //classe banco e seus atributos
     public int numConta;
-    protected String tipo;
+    protected String tipo; //cc ou cp
     private String dono;
     private double saldo;
-    private boolean status;
+    private boolean status; //verdadeiro ou falso
     
-    public Banco(String dono, int numConta){//método construtor
-        this.numConta = numConta;
+    public Banco(String dono, int numConta){//método construtor (meio que inicializa os atributos)
+        this.numConta = numConta; //atribui um valor ao número da conta
         this.status = false;
         this.saldo = 0;
         this.dono = dono;
@@ -63,20 +63,20 @@ public class Banco {
     }
     
     public void abrirConta(String tipo){
-        if (this.status){
+        if (this.status){ //verifica se a conta já está aberta
             System.out.println("Essa conta já está aberta!");
             return;
         }
         
-        if (!tipo.equalsIgnoreCase("cc")&& !tipo.equalsIgnoreCase("cp")){
+        if (!tipo.equalsIgnoreCase("cc")&& !tipo.equalsIgnoreCase("cp")){ //compara para ver se digitou algo válido
             System.out.println("Tipo de conta inexistente. Digite cc (conta corrente) ou cp (conta poupança)");
             return;
         }
         
-        this.setTipo(tipo);
-        this.setStatus(true);
+        this.setTipo(tipo); //altera o tipo
+        this.setStatus(true); //ativa a conta
         
-        if (tipo.equalsIgnoreCase("cc")){
+        if (tipo.equalsIgnoreCase("cc")){//verifica se deu tudo certo e deposita um presente ao cliente
             this.setSaldo (50);
             System.out.println("Conta corrente aberta com sucesso!");
             System.out.println("Você recebeu um presente de R$50,00");
@@ -88,51 +88,51 @@ public class Banco {
     }
     
     public void fecharConta(){
-        if (!status){
+        if (!status){// verifica se a conta está inativa
             System.out.println("A conta já está fechada!");
-        }else if (this.saldo > 0){
+        }else if (this.saldo > 0){//verifica se há dinheiro na conta
             System.out.println("Ainda há dinheiro na conta! Retire o saldo antes de fechar.");
-        }else if (this.saldo < 0){
+        }else if (this.saldo < 0){//verfifica se tem dividas
             System.out.println("Conta em débito!! Quite suas dividas antes de fechar.");
-        }else {
+        }else {//encerra a conta
             this.status = false;
             System.out.println("Conta encerrada com sucesso");
         }
     }
     
     public void depositar(double valor){
-        if (!this.status){
+        if (!this.status){//verifica se a conta já foi fechada
             System.out.println("Conta fechada! Indisponível para transações.");
             return;
         }
         
-        this.saldo += valor;
+        this.saldo += valor;//atribui o valor do depósito à conta
         System.out.println("Déposito de R$" + valor + "feito com sucesso!");
     }
     
     public void sacar(double valor){
-        if (!this.status){
+        if (!this.status){//verifica se a conta está fechada
             System.out.println("Conta fechada! Indisponível para transações.");
         }
-        this.saldo -= valor;
+        this.saldo -= valor;//retira o valor que foi sacado da conta
         System.out.println("Saque de R$" + valor + "feito com sucesso");
     }
     
     public void pagarMensal(){
-        int mensalidade = 0;
+        int mensalidade = 0;//inicializa a variável mensalidade
         
-        if (this.tipo.equalsIgnoreCase("cc")){
+        if (this.tipo.equalsIgnoreCase("cc")){// verifica qual é a conta para atribuir o valor de cada uma
             mensalidade = 12;
         }else if (this.tipo.equalsIgnoreCase("cp")){
             mensalidade = 20;
         }
         
-        if (!this.status){
+        if (!this.status){//se a conta estiver fechada não precisa pagar mensalidade
             System.out.println("Conta fechada!");
             return;
         }
         
-        if (this.saldo < mensalidade){
+        if (this.saldo < mensalidade){// verifica se há dinheiro suficiente
             System.out.println("Saldo insuficiente para pagar mensalidade.");
         }else if (this.saldo > mensalidade){
             this.saldo -= mensalidade;
