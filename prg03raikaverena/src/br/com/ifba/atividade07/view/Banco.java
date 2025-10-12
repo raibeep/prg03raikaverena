@@ -22,43 +22,43 @@ public class Banco {
         this.dono = dono;
     }
 
-    public int getNumConta() {
+    private int getNumConta() {
         return numConta;
     }
 
-    public void setNumConta(int numConta) {
+    private void setNumConta(int numConta) {
         this.numConta = numConta;
     }
 
-    public String getTipo() {
+    private String getTipo() {
         return tipo;
     }
 
-    public void setTipo(String tipo) {
+    private void setTipo(String tipo) {
         this.tipo = tipo;
     }
 
-    public String getDono() {
+    private String getDono() {
         return dono;
     }
 
-    public void setDono(String dono) {
+    private void setDono(String dono) {
         this.dono = dono;
     }
 
-    public double getSaldo() {
+    private double getSaldo() {
         return saldo;
     }
 
-    public void setSaldo(double saldo) {
+    private void setSaldo(double saldo) {
         this.saldo = saldo;
     }
 
-    public boolean getStatus() {
+    private boolean getStatus() {
         return status;
     }
 
-    public void setStatus(boolean status) {
+    private void setStatus(boolean status) {
         this.status = status;
     }
     
@@ -107,7 +107,7 @@ public class Banco {
         }
         
         this.saldo += valor;
-        System.out.println("Déposito de " + valor + "feito com sucesso!");
+        System.out.println("Déposito de R$" + valor + "feito com sucesso!");
     }
     
     public void sacar(double valor){
@@ -115,6 +115,28 @@ public class Banco {
             System.out.println("Conta fechada! Indisponível para transações.");
         }
         this.saldo -= valor;
-        System.out.println("Saque de " + valor + "feito com sucesso");
+        System.out.println("Saque de R$" + valor + "feito com sucesso");
+    }
+    
+    public void pagarMensal(){
+        int mensalidade = 0;
+        
+        if (this.tipo.equalsIgnoreCase("cc")){
+            mensalidade = 12;
+        }else if (this.tipo.equalsIgnoreCase("cp")){
+            mensalidade = 20;
+        }
+        
+        if (!this.status){
+            System.out.println("Conta fechada!");
+            return;
+        }
+        
+        if (this.saldo < mensalidade){
+            System.out.println("Saldo insuficiente para pagar mensalidade.");
+        }else if (this.saldo > mensalidade){
+            this.saldo -= mensalidade;
+            System.out.println("Mensalidade:  R$" + mensalidade + "paga com sucesso!");
+        }
     }
 }
