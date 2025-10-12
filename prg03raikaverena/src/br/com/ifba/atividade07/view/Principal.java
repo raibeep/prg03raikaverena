@@ -9,5 +9,8 @@ package br.com.ifba.atividade07.view;
  * @author Raika
  */
 public class Principal {
-    
+    public static void main(String[] args){
+        Banco cliente1 = new Banco ("Jubileu", 1111);
+        cliente1.abrirConta("cc");
+    }
 }
