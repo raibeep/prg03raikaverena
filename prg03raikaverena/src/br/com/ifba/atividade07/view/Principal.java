@@ -27,5 +27,37 @@ public class Principal {
         
         conta.abrirConta(tipo);//abre a conta
         
+        int opcao;
+        do{//repetição para o menu
+            System.out.println("==MENU==");
+            System.out.println("1- Depositar");
+            System.out.println("2- Sacar");
+            System.out.println("3- Pagar Mensalidade");
+            System.out.println("4- Fechar Conta");
+            System.out.println("0- Sair");
+            System.out.println("Escolha uma opção: ");
+            opcao = entrada.nextInt();
+            
+            switch (opcao){
+                case 1:
+                    System.out.println("Valor do depósito: ");
+                    double valorDeposito = entrada.nextDouble();
+                    conta.depositar(valorDeposito);//pega o valor digitado e realiza o depósito
+                    break;
+                case 2:
+                    System.out.println("Valor do saque: ");
+                    double valorSaque = entrada.nextDouble();
+                    conta.sacar(valorSaque);//pega o valor e faz o saque desejado
+                    break;
+                case 3:
+                    conta.pagarMensal();//paga a mensalidade
+                    break;
+                case 4:
+                    conta.fecharConta();//fecha a conta
+                    break;
+                case 0:
+                    System.out.println("Saindo...");
+            }
+        }while(opcao != 0);  
     }
 }

@@ -107,13 +107,18 @@ public class Banco { //classe banco e seus atributos
         }
         
         this.saldo += valor;//atribui o valor do depósito à conta
-        System.out.println("Déposito de R$" + valor + "feito com sucesso!");
+        System.out.println("Déposito de R$" + valor + " feito com sucesso!");
     }
     
     public void sacar(double valor){
         if (!this.status){//verifica se a conta está fechada
             System.out.println("Conta fechada! Indisponível para transações.");
+            return;
+        }else if (this.saldo < valor){//verifica se há saldo para saque
+            System.out.println("Saldo indisponível.");
+            return;
         }
+        
         this.saldo -= valor;//retira o valor que foi sacado da conta
         System.out.println("Saque de R$" + valor + "feito com sucesso");
     }
