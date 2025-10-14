@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package br.com.ifba.atividade08.view;
+import java.util.UUID; //classe do java.util que gera identificadores únicos
 
 /**
  *
@@ -12,6 +13,11 @@ public class Sessao {
     private long id;
     private Usuario usuario;
     private String token;
+    
+    public Sessao(Usuario usuario){
+        this.usuario = usuario;
+        this.token = UUID.randomUUID().toString(); //gera um código e coverte para String
+    }
 
     public long getId() {
         return id;

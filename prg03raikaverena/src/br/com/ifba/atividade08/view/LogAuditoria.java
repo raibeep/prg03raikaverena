@@ -15,6 +15,13 @@ public class LogAuditoria {
     private String acao;
     private LocalDateTime dataHora;
     private String ip;
+    
+    public LogAuditoria(Usuario usuario, String acao, String ip){
+        this.usuario = usuario;
+        this.acao = acao;
+        this.ip = ip;
+        this.dataHora = LocalDateTime.now();
+    }
 
     public long getId() {
         return id;

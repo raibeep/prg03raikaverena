@@ -14,6 +14,11 @@ public class PerfilUsuario {
     private long id;
     private String descricao;
     private List<String> permissoes;
+    
+    public PerfilUsuario(String descricao, List<String> permissoes){
+        this.descricao = descricao;
+        this.permissoes = new ArrayList<>(permissoes); //cria uma nova lista dentro do objeto, evitando erros futuros
+    }
 
     public long getId() {
         return id;

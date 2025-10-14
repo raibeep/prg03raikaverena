@@ -18,7 +18,7 @@ public class Usuario {
     private LocalDateTime ultimoLogin;
     private boolean ativo;
     
-    public Usuario(String nomeUsuario, String senha){
+    public Usuario(String nomeUsuario, String senha){//método construtor
         this.nomeUsuario = nomeUsuario;
         this.senha = senha;
         this.ultimoLogin = null;
