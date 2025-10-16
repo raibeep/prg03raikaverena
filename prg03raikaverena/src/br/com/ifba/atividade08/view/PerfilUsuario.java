@@ -15,7 +15,8 @@ public class PerfilUsuario {
     private String descricao;
     private List<String> permissoes;
     
-    public PerfilUsuario(String descricao, List<String> permissoes){
+    public PerfilUsuario(long id, String descricao, List<String> permissoes){
+        this.id = id;
         this.descricao = descricao;
         this.permissoes = new ArrayList<>(permissoes); //cria uma nova lista dentro do objeto, evitando erros futuros
     }

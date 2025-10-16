@@ -16,11 +16,12 @@ public class LogAuditoria {
     private LocalDateTime dataHora;
     private String ip;
     
-    public LogAuditoria(Usuario usuario, String acao, String ip){
+    public LogAuditoria(Usuario usuario, String acao){
         this.usuario = usuario;
         this.acao = acao;
-        this.ip = ip;
+        this.ip = "125.09.0";
         this.dataHora = LocalDateTime.now();
+        System.out.println(this); //imprime automáticamente o log
     }
 
     public long getId() {

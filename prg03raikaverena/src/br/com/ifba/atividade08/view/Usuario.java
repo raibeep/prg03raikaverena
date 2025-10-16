@@ -18,9 +18,12 @@ public class Usuario {
     private LocalDateTime ultimoLogin;
     private boolean ativo;
     
-    public Usuario(String nomeUsuario, String senha){//método construtor
+    public Usuario(long id, String nomeUsuario, String email, String senha, PerfilUsuario perfil){//método construtor
+        this.id = id;
+        this.email = email;
         this.nomeUsuario = nomeUsuario;
         this.senha = senha;
+        this.perfil = perfil;
         this.ultimoLogin = null;
     }
 
@@ -70,6 +73,22 @@ public class Usuario {
 
     public void setAtivo(boolean ativo) {
         this.ativo = ativo;
+    }
+    
+    public void logar(String senha) {
+        if (this.senha.equals(senha)) {
+            this.ultimoLogin = LocalDateTime.now();
+            System.out.println(nomeUsuario + " logado com sucesso!");
+            new LogAuditoria(this, "Usuário logou no sistema.");
+        } else {
+            System.out.println("Senha incorreta para " + nomeUsuario);
+        }
+    }
+    
+    public Sessao criarSessao() {
+        Sessao s = new Sessao(this);
+        System.out.println("Sessão criada para " + nomeUsuario + ". Token: " + s.getToken());
+        return s;
     }
     
     public String toString(){
