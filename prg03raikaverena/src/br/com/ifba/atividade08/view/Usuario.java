@@ -72,4 +72,7 @@ public class Usuario {
         this.ativo = ativo;
     }
     
+    public String toString(){
+        return "Usuário: " +nomeUsuario+ "/E-mail: " +email+ "/Perfil: " +perfil.getDescricao();
+    }
 }

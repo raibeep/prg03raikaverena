@@ -44,4 +44,8 @@ public class PerfilUsuario {
         this.permissoes = permissoes;
     }
     
+    public String toString(){
+        return "Perfil: " +descricao+ "/Permissões: " +permissoes;
+    }
+    
 }

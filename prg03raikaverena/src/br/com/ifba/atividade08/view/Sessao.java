@@ -43,4 +43,9 @@ public class Sessao {
         this.token = token;
     }
     
+    public String toString(){
+        return "Sessão{ " + "id: " +id+ 
+                ", usuário: " +usuario.getNomeUsuario()+ 
+                ", token: " +token+ "}";
+    }
 }

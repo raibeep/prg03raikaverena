@@ -62,5 +62,11 @@ public class LogAuditoria {
     public void setIp(String ip) {
         this.ip = ip;
     }
+    
+    public String toString(){
+        return "LogAuditoria{ "+ 
+                "usuário: " +usuario.getNomeUsuario() + 
+                ", ação: " +acao+ ", dataHora: " +dataHora+ ", ip: " +ip+ "}";
+    }
 
 }
