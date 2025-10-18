@@ -19,7 +19,7 @@ public class LogAuditoria {
     public LogAuditoria(Usuario usuario, String acao){
         this.usuario = usuario;
         this.acao = acao;
-        this.ip = "125.09.0";
+        this.ip = "125.09.0"; 
         this.dataHora = LocalDateTime.now();
         System.out.println(this); //imprime automáticamente o log
     }

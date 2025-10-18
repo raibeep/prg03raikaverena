@@ -76,19 +76,19 @@ public class Usuario {
     }
     
     public void logar(String senha) {
-        if (this.senha.equals(senha)) {
-            this.ultimoLogin = LocalDateTime.now();
-            System.out.println(nomeUsuario + " logado com sucesso!");
-            new LogAuditoria(this, "Usuário logou no sistema.");
+        if (this.senha.equals(senha)) { //compara a senha armazenada no objeto (this.senha) com a senha passada como argumento
+            this.ultimoLogin = LocalDateTime.now(); //atualiza o campo 'ultimoLogin' com o instante atual
+            System.out.println(nomeUsuario + " logado com sucesso!"); 
+            new LogAuditoria(this, "Usuário logou no sistema."); //cria uma nova instância de LogAuditoria registrando a ação de login
         } else {
-            System.out.println("Senha incorreta para " + nomeUsuario);
+            System.out.println("Senha incorreta para " + nomeUsuario); //caso a senha esteja errada, imrpime essa mensagem
         }
     }
     
     public Sessao criarSessao() {
-        Sessao s = new Sessao(this);
-        System.out.println("Sessão criada para " + nomeUsuario + ". Token: " + s.getToken());
-        return s;
+        Sessao s = new Sessao(this); //instancia uma nova Sessao vinculada a este usuário (this)
+        System.out.println("Sessão criada para " + nomeUsuario + ". Token: " + s.getToken()); //imprime no console que a sessão foi criada e mostra o token
+        return s; //retorna a sessão criada a quem chamou
     }
     
     public String toString(){
