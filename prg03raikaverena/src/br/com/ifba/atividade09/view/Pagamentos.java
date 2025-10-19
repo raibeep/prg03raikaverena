@@ -33,7 +33,7 @@ public class Pagamentos extends javax.swing.JFrame {
         lblTipoPagamento = new javax.swing.JLabel();
         comboPagamento = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        lblValorCompra = new javax.swing.JLabel();
         txtValor = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -58,16 +58,16 @@ public class Pagamentos extends javax.swing.JFrame {
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, -1, -1));
 
-        jLabel1.setText("Valor da compra: ");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, -1, -1));
+        lblValorCompra.setText("Valor da compra: ");
+        getContentPane().add(lblValorCompra, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, -1, -1));
 
-        txtValor.setText("R$");
+        txtValor.setText("Digite o valor (use \".\" no lugar da vírgula)");
         txtValor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtValorActionPerformed(evt);
             }
         });
-        getContentPane().add(txtValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 80, -1));
+        getContentPane().add(txtValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 250, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -83,26 +83,32 @@ public class Pagamentos extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         try{
+            //pega o valor digitado pelo usuário e transforma em double
             double valor = Double.parseDouble(txtValor.getText());
+            //pega a forma de pagamento do combobox
             String forma = (String) comboPagamento.getSelectedItem();
+            //cria uma variável do tipo inteface Pagamento e inicializa
             Pagamento pagamento = null;
             
-            if(forma.equals("Dinheiro")){
+            if(forma.equals("Dinheiro")){ //confere qual foi o tipo de pagamento escolhido
+                //cria o objeto na classe PagamentoDinheiro
                 pagamento = new PagamentoDinheiro(valor);
             }else if(forma.equals("Cartão")){
+                //cria o objeto na classe PagamentoCartao
                 pagamento = new PagamentoCartao(valor);
             }else if(forma.equals("PIX")){
+                //cria o objeto na classe PagamentoPix
                 pagamento = new PagamentoPix(valor);
-            }else{
+            }else{ //caso o usuário faça alguma graça
                 JOptionPane.showMessageDialog(this, "Forma de pagamento inválida!");
             }
-            
+            //calcula o valor
             pagamento.calcularTotal(valor);
-            System.out.println("Botão clicado! Valor: " + valor + ", Forma: " + forma);
+            //mostra o recibo
             pagamento.imprimirRecibo();
             
             
-        }catch (NumberFormatException e){
+        }catch (NumberFormatException e){//caso o usuário digite algo inválido
             JOptionPane.showMessageDialog(this, "Digite um valor numérico válido!");
         }
         
@@ -136,8 +142,8 @@ public class Pagamentos extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> comboPagamento;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblTipoPagamento;
+    private javax.swing.JLabel lblValorCompra;
     private javax.swing.JTextField txtValor;
     // End of variables declaration//GEN-END:variables
 }

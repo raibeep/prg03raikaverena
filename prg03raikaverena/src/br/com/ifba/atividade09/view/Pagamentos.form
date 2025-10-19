@@ -70,7 +70,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="lblValorCompra">
       <Properties>
         <Property name="text" type="java.lang.String" value="Valor da compra: "/>
       </Properties>
@@ -82,14 +82,14 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtValor">
       <Properties>
-        <Property name="text" type="java.lang.String" value="R$"/>
+        <Property name="text" type="java.lang.String" value="Digite o valor (use &quot;.&quot; no lugar da v&#xed;rgula)"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtValorActionPerformed"/>
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="170" y="90" width="80" height="-1"/>
+          <AbsoluteConstraints x="170" y="90" width="250" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>
