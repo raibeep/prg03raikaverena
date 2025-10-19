@@ -4,12 +4,20 @@
  */
 package br.com.ifba.atividade09.view;
 
+import javax.swing.JFrame;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+
 /**
  *
  * @author Raika
  */
 public class PagamentoDinheiro implements Pagamento{
     private double valor;
+    
+    public PagamentoDinheiro(double Valor){
+        this.valor = valor;
+    }
 
     public double getValor() {
         return valor;
@@ -31,6 +39,18 @@ public class PagamentoDinheiro implements Pagamento{
 
     @Override
     public void imprimirRecibo() {
-        System.out.printf("Pagamento de R$ %.2f feito com sucesso!%n", this.valor);
+        String textoRecibo = String.format(
+        "Pagamento em Dinheiro\nValor total com desconto: R$ %.2f",
+            this.valor);
+        
+        JFrame reciboFrame = new JFrame("Recibo Dinheiro");
+        JTextArea textArea = new JTextArea(10, 30);
+        
+        textArea.setText(textoRecibo);
+        textArea.setEditable(false);
+        reciboFrame.add(new JScrollPane(textArea));
+        reciboFrame.pack();
+        reciboFrame.setLocationRelativeTo(null);
+        reciboFrame.setVisible(true);
     }
 }
