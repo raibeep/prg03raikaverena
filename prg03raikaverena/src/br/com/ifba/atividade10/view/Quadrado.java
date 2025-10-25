@@ -29,4 +29,8 @@ public class Quadrado extends Forma2D {
         this.lado = lado;
     }
     
+    @Override
+    public String toString(){
+        return super.toString() + "(Lado = " + lado + ")";
+    }
 }

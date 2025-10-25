@@ -39,4 +39,8 @@ public class Triangulo extends Forma2D {
         this.altura = altura;
     }
     
+    @Override
+    public String toString(){
+        return super.toString() + "(Base = " + base + ", Altura = " + altura + ")";
+    }
 }

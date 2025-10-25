@@ -70,4 +70,11 @@ public class Piramide extends Forma3D {
         this.altura = altura;
     }
     
+    
+    @Override
+    public String toString(){
+        return super.toString() + "Area Lateral= " + areaLateral + 
+                ", Area Base = " + areaBase + 
+                ", Altura = " + altura + ")";
+    }
 }

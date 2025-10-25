@@ -34,4 +34,8 @@ public class Cubo extends Forma3D {
         this.lado = lado;
     }
     
+    @Override
+    public String toString(){
+        return super.toString() + "(Lado = " + lado + ")";
+    }
 }

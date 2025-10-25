@@ -27,6 +27,6 @@ public abstract class Forma {
     
     @Override
     public String toString(){
-        return nome;
+        return "Forma " + nome;
     }
 }

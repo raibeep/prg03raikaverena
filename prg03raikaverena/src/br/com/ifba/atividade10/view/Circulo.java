@@ -29,4 +29,9 @@ public class Circulo extends Forma2D {
         this.raio = raio;
     }
     
+    @Override
+    public String toString(){
+        return super.toString() + "(Raio = " + raio + ")";
+    }
+    
 }

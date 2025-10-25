@@ -34,4 +34,8 @@ public class Esfera extends Forma3D {
         this.raio = raio;
     }
     
+    @Override 
+    public String toString(){
+        return super.toString() + "(Raio = " + raio + ")";
+    }
 }
