@@ -10,6 +10,10 @@ package br.com.ifba.atividade10.view;
  */
 public abstract class Forma {
     private String nome;
+    
+    public Forma(String nome){
+        this.nome = nome;
+    }
 
     public String getNome() {
         return nome;
@@ -18,5 +22,11 @@ public abstract class Forma {
     public void setNome(String nome) {
         this.nome = nome;
     }
+    //método abstrato que todas as formas irão implementar
+    public abstract double obterArea();
     
+    @Override
+    public String toString(){
+        return nome;
+    }
 }
