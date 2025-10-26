@@ -11,13 +11,13 @@ package br.com.ifba.atividade10.view;
 public class Quadrado extends Forma2D {
     private double lado;
     
-    public Quadrado(double lado){
+    public Quadrado(double lado){//método construtor da classe
         super("Quadrado");
         this.lado = lado;
     }
     
     @Override 
-    public double obterArea(){
+    public double obterArea(){//sobrescreve o método da classe mãe, e acrescenta a fórmula
         return lado * lado;
     }
 
@@ -30,7 +30,7 @@ public class Quadrado extends Forma2D {
     }
     
     @Override
-    public String toString(){
+    public String toString(){//sobrescreve o método toString da classe mãe
         return super.toString() + "(Lado = " + lado + ")";
     }
 }

@@ -9,9 +9,9 @@ package br.com.ifba.atividade10.view;
  * @author raiii
  */
 public abstract class Forma3D extends Forma {
-    public Forma3D(String nome){
+    public Forma3D(String nome){//construtor
         super(nome);
     }
     
-    public abstract double obterVolume();
+    public abstract double obterVolume();//método que as classes filhas irão herdar
 }

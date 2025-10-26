@@ -11,18 +11,18 @@ package br.com.ifba.atividade10.view;
 public class Esfera extends Forma3D {
     private double raio;
     
-    public Esfera(double raio){
+    public Esfera(double raio){//método construtor da classe
         super("Esfera");
         this.raio = raio;
     }
     
     @Override 
-    public double obterArea(){
+    public double obterArea(){//sobrescreve o método da classe pai, e acrescenta a fórmula
         return 4 * Math.PI * raio * raio;
     }
     
     @Override 
-    public double obterVolume(){
+    public double obterVolume(){//sobrescreve o método da classe pai, e acrescenta a fórmula
         return (4.0/3.0) * Math.PI * Math.pow(raio, 3);
     }
 
@@ -35,7 +35,7 @@ public class Esfera extends Forma3D {
     }
     
     @Override 
-    public String toString(){
+    public String toString(){//sobrescreve o método toString da classe pai
         return super.toString() + "(Raio = " + raio + ")";
     }
 }

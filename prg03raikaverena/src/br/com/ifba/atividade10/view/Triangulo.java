@@ -12,14 +12,14 @@ public class Triangulo extends Forma2D {
     private double base;
     private double altura;
     
-    public Triangulo(double base, double altura){
+    public Triangulo(double base, double altura){//método construtor da classe
         super("Triângulo");
         this.base = base;
         this.altura = altura;
     }
     
     @Override
-    public double obterArea(){
+    public double obterArea(){//sobrescreve o método da classe mãe, e acrescenta a fórmula 
         return (base * altura) / 2;
     }
 
@@ -40,7 +40,7 @@ public class Triangulo extends Forma2D {
     }
     
     @Override
-    public String toString(){
+    public String toString(){//sobrescreve o método toString da classe mãe
         return super.toString() + "(Base = " + base + ", Altura = " + altura + ")";
     }
 }

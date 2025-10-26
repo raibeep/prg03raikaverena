@@ -10,7 +10,7 @@ package br.com.ifba.atividade10.view;
  */
 public abstract class Forma2D extends Forma {
     
-    public Forma2D(String nome) {
+    public Forma2D(String nome) {//construtor
         super(nome);
     }  
 }

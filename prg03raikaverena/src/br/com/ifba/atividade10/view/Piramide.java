@@ -31,18 +31,19 @@ public class Piramide extends Forma3D {
     //construtor para piramide de base triangular
     public Piramide(double baseTriangulo, double alturaTriangulo, double alturaPiramide, double apotema){
         super("Pirâmide de Base Triangular");
+        //calcula as áreas necessárias
         this.areaBase = (baseTriangulo * alturaTriangulo) / 2;
         this.areaLateral = 3 * (baseTriangulo * apotema) / 2;
         this.altura = alturaPiramide;
     }
     
     @Override 
-    public double obterArea(){
+    public double obterArea(){//sobrescreve o método herdado da classe mãe, e acrescenta a fórmula
         return areaBase + areaLateral;
     }
     
     @Override 
-    public double obterVolume(){
+    public double obterVolume(){//sobrescreve o método herdado da classe mãe, e acrescenta a fórmula
         return (areaBase * altura) / 3;
     }
 
@@ -72,7 +73,7 @@ public class Piramide extends Forma3D {
     
     
     @Override
-    public String toString(){
+    public String toString(){//sobrescreve o método toString da classe mãe
         return super.toString() + "Area Lateral= " + areaLateral + 
                 ", Area Base = " + areaBase + 
                 ", Altura = " + altura + ")";

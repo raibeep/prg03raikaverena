@@ -11,13 +11,13 @@ package br.com.ifba.atividade10.view;
 public class Circulo extends Forma2D {
     private double raio;
     
-    public Circulo(double raio){
+    public Circulo(double raio){//método construtor
         super("Círculo");
         this.raio = raio;
     }
     
     @Override
-    public double obterArea(){
+    public double obterArea(){//herda método de Forma e coloca a lógica da fórmula
         return Math.PI * raio * raio;
     }
     
@@ -30,8 +30,10 @@ public class Circulo extends Forma2D {
     }
     
     @Override
-    public String toString(){
+    public String toString(){//sobrescreve o método toString da classe pai(Forma)
+        //o método toString serve para representar o objeto como texto
         return super.toString() + "(Raio = " + raio + ")";
+        //o super serve para acessar os dados da superclasse (métodos e construtores da classe mãe)
     }
     
 }
